@@ -12,6 +12,7 @@ export default function Portfolio() {
     const [theme, setTheme] = useState<number>(0)
     const [isPulling, setIsPulling] = useState<boolean>(false)
     const [pullDistance, setPullDistance] = useState<number>(0)
+    const [startY, setStartY] = useState<number>(0)
 
     useEffect(() => {
         setIsVisible(true)
@@ -41,6 +42,11 @@ export default function Portfolio() {
     ): void => {
         setIsPulling(true)
         setPullDistance(0)
+
+        const clientY: number = "touches" in e
+            ? e.touches[0].clientY
+            : e.clientY
+        setStartY(clientY)
     }
 
     const handlePullMove = (e: MouseEvent | TouchEvent): void => {
@@ -49,7 +55,6 @@ export default function Portfolio() {
         const clientY: number = e.type.includes("touch")
             ? (e as TouchEvent).touches[0].clientY
             : (e as MouseEvent).clientY
-        const startY: number = window.innerHeight / 2
         const distance: number = Math.max(0, Math.min(clientY - startY, 100))
         setPullDistance(distance)
     }
@@ -63,6 +68,7 @@ export default function Portfolio() {
 
         setIsPulling(false)
         setPullDistance(0)
+        setStartY(0)
     }
 
     useEffect((): (() => void) | undefined => {
