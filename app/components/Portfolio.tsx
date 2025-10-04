@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 
 export default function Portfolio() {
     const [isVisible, setIsVisible] = useState(false)
+    const [activeProject, setActiveProject] = useState(0)
 
     useEffect(() => {
         setIsVisible(true)
@@ -44,6 +45,34 @@ export default function Portfolio() {
                         <p className="text-xs tracking-[0.4em] text-center opacity-40 mb-20">
                             CONTENT X DEVELOPEMENT
                         </p>
+                </div>
+            </div>
+
+            {/* projects grid */}
+            <div className="px-8 md:px-20 py-32 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-1 border-t border-white border-opacity-10">
+                    {projects.map((project, idx) => (
+                        <div
+                            key={idx}
+                            onMouseEnter={() => setActiveProject(idx)}
+                            className="border-b border-white border-opacity-10
+                                py-12 px-8
+                                cursor-pointer group
+                                transition-all duration-300 hover:bg-white hover:bg-opacity-5"
+                        >
+                            <div className="text-xs tracking-[0.3em] opacity-40 mb-4">
+                                {project.type}
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-light tracking-tight mb-2
+                                transition-all duration-300 group-hover:tracking-wide"
+                            >
+                                {project.title}
+                            </h3>
+                            <div className="text-xs tracking-[0.3em] opacity-40">
+                                {project.year}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
