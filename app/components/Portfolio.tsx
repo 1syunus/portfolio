@@ -24,9 +24,9 @@ export default function Portfolio() {
     const lineClass: string = isDark || hasVideo ? "bg-white" : "bg-black"
     const borderClass: string = isDark || hasVideo ? "border-white" : "border-zinc-900"
 
-    const opacityNav: string = isDark || hasVideo ? 'opacity-60' : 'opacity-70'
-    const opacitySubtle: string = isDark || hasVideo ? 'opacity-40' : 'opacity-50'
-    const opacityFaint: string = isDark || hasVideo ? 'opacity-30' : 'opacity-40'
+    const opacityNav: string = isDark || hasVideo ? "opacity-60" : "opacity-70"
+    const opacitySubtle: string = isDark || hasVideo ? "opacity-40" : "opacity-50"
+    const opacityFaint: string = isDark || hasVideo ? "opacity-30" : "opacity-40"
 
     useEffect(() => {
         setIsVisible(true)
@@ -115,7 +115,7 @@ export default function Portfolio() {
             {/* hero */}
             <div className="flex flex-col items-center justify-center min-h-screen px-8">
                 <div 
-                    className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                     >
                         <h1 className="text-7xl md:text-9xl font-extralight tracking-tight mb-4 text-center leading-none">
                             SUHAYB
@@ -129,27 +129,36 @@ export default function Portfolio() {
                 <div
                     className={`absolute top-96 left-1/2 -translate-x-1/2
                         flex flex-col items-center
-                        px-8 py-8
+                        px-8 py-8 animate-pulse
                         cursor-grab select-none
-                        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                         transition duration-1000`}
                     onTouchStart={handlePullStart}
                     onMouseDown={handlePullStart}
                 >
                     {/* animated cord-line */}
                     <div
-                        className={`w-px ${lineClass} ${isDark || hasVideo ? 'opacity-20' : 'opacity-30'} transition-all duration-300`}
+                        className={`w-px ${lineClass} ${isDark || hasVideo ? "opacity-20" : "opacity-30"}
+                            transition-all duration-300 bg-white ${!isPulling ? "animate-pulse" : ""}
+                            `}
                         style={{
                             height: `${64 + pullDistance}px`,
                         }}    
                     ></div>
 
                     {/* spherical top */}
-                    <div className={`w-4 h-4 rounded-full ${lineClass} ${isDark || hasVideo ? 'opacity-20' : 'opacity-30'} transition-all duration-300 ${isPulling ? 'scale-110' : ''}`}></div>
+                    <div className={`w-4 h-4 rounded-full animate-pulse bg-white
+                        ${lineClass} ${isDark || hasVideo ? "opacity-20" : "opacity-30"}
+                        transition-all duration-300
+                        ${isPulling ? "scale-110" : "scale-100"}`}
+                    ></div>
 
                     {/* pull indicator */}
                     {pullDistance > 0 && (
-                        <div className="text-[10px] tracking-[0.3em] text-center mt-6 opacity-40">
+                        <div
+                            className={`text-[10px] tracking-[0.3em] text-center mt-6 animate-pulse
+                                ${isDark || hasVideo ? "opacity-40" : "opacity-55"}`}
+                        >
                             {pullDistance > 60 ? "RELEASE" : "PULL"}
                         </div>
                     )}
@@ -158,14 +167,14 @@ export default function Portfolio() {
 
             {/* projects grid */}
             <div className="px-8 md:px-20 py-32 max-w-7xl mx-auto">
-                <div className={`grid grid-cols-1 md:grid-cols-3 gap-1 border-t ${borderClass} ${isDark || hasVideo ? 'border-opacity-10' : 'border-opacity-5'}`}>
+                <div className={`grid grid-cols-1 md:grid-cols-3 gap-1 border-t ${borderClass} ${isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"}`}>
                     {projects.map((project, idx) => (
                         <div
                             key={idx}
                             onMouseEnter={() => setActiveProject(idx)}
                             className={`border-b
                                 ${borderClass}
-                                ${isDark || hasVideo ? 'border-opacity-10' : 'border-opacity-5'} py-12 px-8 cursor-pointer group transition-all duration-300
+                                ${isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"} py-12 px-8 cursor-pointer group transition-all duration-300
                                 ${isDark
                                     ? "hover:bg-white hover:bg-opacity-5"
                                     : isLight
@@ -189,7 +198,9 @@ export default function Portfolio() {
             </div>
 
             {/* contact section */}
-            <div className={`px-8 md:px-20 py-32 border-t ${borderClass} ${isDark || hasVideo ? 'border-opacity-30' : 'border-opacity-20'}`}>
+            <div className={`px-8 md:px-20 py-32 border-t
+                ${borderClass} ${isDark || hasVideo ? "border-opacity-30" : "border-opacity-20"}`}
+                >
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div>
                         <h2 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
@@ -204,7 +215,7 @@ export default function Portfolio() {
                             href="https://github.com/1syunus"
                             className={`block text-sm tracking-[0.2em]
                                 opacity-60 hover:opacity-100 transition-opacity duration-300
-                                ${isDark || hasVideo ? 'opacity-60 hover:opacity-100' : 'opacity-50 hover:opacity-100'}
+                                ${isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-50 hover:opacity-100"}
                                 `}
                         >
                             GITHUB
@@ -213,7 +224,7 @@ export default function Portfolio() {
                             href="linkedin.com/in/suhayb1"
                             className={`block text-sm tracking-[0.2em]
                                 opacity-60 hover:opacity-100 transition-opacity duration-300
-                                ${isDark || hasVideo ? 'opacity-60 hover:opacity-100' : 'opacity-50 hover:opacity-100'}
+                                ${isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-50 hover:opacity-100"}
                                 `}
                         >
                             LINKEDIN
@@ -224,7 +235,7 @@ export default function Portfolio() {
 
             {/* footer */}
             <footer className={`px-8 py-6 border-t border-white border-opacity-10
-                ${borderClass} ${isDark || hasVideo ? 'border-opacity-10' : 'border-opacity-5'}
+                ${borderClass} ${isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"}
                 `}>
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div className={`text-xs tracking-[0.3em] ${opacityFaint}`}>
