@@ -9,6 +9,9 @@ interface Project {
 export default function Portfolio() {
     const [isVisible, setIsVisible] = useState<boolean>(false)
     const [activeProject, setActiveProject] = useState<number>(0)
+    const [theme, setTheme] = useState<number>(0)
+    const [isPulling, setIsPulling] = useState<boolean>(false)
+    const [pullDistance, setPullDistance] = useState<number>(0)
 
     useEffect(() => {
         setIsVisible(true)
@@ -31,6 +34,55 @@ export default function Portfolio() {
             type: "Typography",
         }
     ]
+
+    // handlers
+    const handlePullStart = (
+        e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
+    ): void => {
+        setIsPulling(true)
+        setPullDistance(0)
+    }
+
+    const handlePullMove = (e: MouseEvent | TouchEvent): void => {
+        if (!isPulling) return
+
+        const clientY: number = e.type.includes("touch")
+            ? (e as TouchEvent).touches[0].clientY
+            : (e as MouseEvent).clientY
+        const startY: number = window.innerHeight / 2
+        const distance: number = Math.max(0, Math.min(clientY - startY, 100))
+        setPullDistance(distance)
+    }
+
+    const handlePullEnd = (): void => {
+        if (!isPulling) return
+
+        if (pullDistance > 60) {
+            setTheme((prev: number) => prev + 1)
+        }
+
+        setIsPulling(false)
+        setPullDistance(0)
+    }
+
+    useEffect((): (() => void) | undefined => {
+        if (isPulling) {
+            const moveHandler = (e: Event): void => handlePullMove(e as TouchEvent | MouseEvent)
+            const endHandler = (): void => handlePullEnd()
+
+            document.addEventListener("touchmove", moveHandler)
+            document.addEventListener("touchend", endHandler)
+            document.addEventListener("mousemove", moveHandler)
+            document.addEventListener("mouseup", endHandler)
+
+            return (): void => {
+                document.removeEventListener("touchmove", moveHandler)
+                document.removeEventListener("touchend", endHandler)
+                document.removeEventListener("mousemove", moveHandler)
+                document.removeEventListener("mouseup", endHandler)
+            }
+        }
+    }, [isPulling, pullDistance])
 
     return (
         <div className="min-h-screen bg-black text-white font-light overflow-hidden">
