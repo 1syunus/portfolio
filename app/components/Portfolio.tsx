@@ -231,7 +231,7 @@ export default function Portfolio() {
                         2025
                     </div>
                     <div className={`text-xs tracking-[0.3em] ${opacityFaint}`}>
-                        CRAFTED WITH PRECISION
+                        BUILT WITH TASTE
                     </div>
                 </div>
             </footer>
