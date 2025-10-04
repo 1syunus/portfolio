@@ -116,7 +116,9 @@ export default function Portfolio() {
                     className="absolute top-96 left-1/2 -translate-x-1/2
                         flex flex-col items-center
                         px-8 py-8
-                        cursor-grab select-none"
+                        cursor-grab select-none
+                        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        transition duration-1000`}
                     onTouchStart={handlePullStart}
                     onMouseDown={handlePullStart}
                 >
