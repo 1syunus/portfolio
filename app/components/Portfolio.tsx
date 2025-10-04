@@ -129,17 +129,17 @@ export default function Portfolio() {
                 <div
                     className={`absolute top-96 left-1/2 -translate-x-1/2
                         flex flex-col items-center
-                        px-8 py-8 animate-pulse
-                        cursor-grab select-none
+                        px-8 py-8
+                        cursor-grab select-none transition-all
                         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-                        transition duration-1000`}
+                        `}
                     onTouchStart={handlePullStart}
                     onMouseDown={handlePullStart}
                 >
                     {/* animated cord-line */}
                     <div
-                        className={`w-px ${lineClass} ${isDark || hasVideo ? "opacity-20" : "opacity-30"}
-                            transition-all duration-300 bg-white ${!isPulling ? "animate-pulse" : ""}
+                        className={`w-px ${lineClass} ${isDark || hasVideo ? "opacity-20 bg-white" : "opacity-30"}
+                            transition-all duration-300 ${!isPulling ? "animate-pulse" : ""}
                             `}
                         style={{
                             height: `${64 + pullDistance}px`,
@@ -147,8 +147,8 @@ export default function Portfolio() {
                     ></div>
 
                     {/* spherical top */}
-                    <div className={`w-4 h-4 rounded-full animate-pulse bg-white
-                        ${lineClass} ${isDark || hasVideo ? "opacity-20" : "opacity-30"}
+                    <div className={`w-4 h-4 rounded-full animate-pulse
+                        ${lineClass} ${isDark || hasVideo ? "opacity-20 bg-white" : "opacity-30"}
                         transition-all duration-300
                         ${isPulling ? "scale-110" : "scale-100"}`}
                     ></div>
