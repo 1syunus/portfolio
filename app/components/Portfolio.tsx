@@ -55,12 +55,17 @@ export default function Portfolio() {
                         <div
                             key={idx}
                             onMouseEnter={() => setActiveProject(idx)}
-                            className="border-b border-white border-opacity-10 py-12 px-8 cursor-pointer group transition-all duration-300"
+                            className="border-b border-white border-opacity-10
+                                py-12 px-8
+                                cursor-pointer group
+                                transition-all duration-300 hover:bg-white hover:bg-opacity-5"
                         >
                             <div className="text-xs tracking-[0.3em] opacity-40 mb-4">
                                 {project.type}
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-light tracking-tight mb-2">
+                            <h3 className="text-2xl md:text-3xl font-light tracking-tight mb-2
+                                transition-all duration-300 group-hover:tracking-wide"
+                            >
                                 {project.title}
                             </h3>
                             <div className="text-xs tracking-[0.3em] opacity-40">
