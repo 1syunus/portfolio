@@ -76,6 +76,40 @@ export default function Portfolio() {
                 </div>
             </div>
 
+            {/* contact section */}
+            <div className="px-8 md:px-20 py-32 border-t border-white border-opacity-10">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h2 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
+                            LET'S TALK
+                        </h2>
+                        <p className="text-xs tracking-[0.3em] opacity-40">
+                            AVAILABLE FOR SELECT PROJECTS
+                        </p>
+                    </div>
+                    <div className="mt-12 md:mt-0 space-y-4 text-right">
+                        <a
+                            href="xxxxxxxxxxxxxxxxx@gmail.com"
+                            className="block text-sm tracking-[0.2em]"
+                        >
+                            EMAIL
+                        </a>
+                        <a
+                            href="https://github.com/1syunus"
+                            className="block text-sm tracking-[0.2em]"
+                        >
+                            GITHUB
+                        </a>
+                        <a
+                            href="linkedin.com/in/suhayb1"
+                            className="block text-sm tracking-[0.2em]"
+                        >
+                            LINKEDIN
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             {/* footer */}
             <footer className="px-8 py-6 border-t border-white border-opacity-10">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
