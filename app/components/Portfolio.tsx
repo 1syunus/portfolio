@@ -1,3 +1,4 @@
+"use client"
 import React, {useState, useEffect} from "react"
 
 export default function Portfolio() {
@@ -39,10 +40,10 @@ export default function Portfolio() {
                     className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     >
                         <h1 className="text-7xl md:text-9xl font-extralight tracking-tight mb-4 text-center leading-none">
-                            ENVOGUE
+                            SUHAYB
                         </h1>
                         <p className="text-xs tracking-[0.4em] text-center opacity-40 mb-20">
-                            CREATIVE DEVELOPER
+                            CONTENT X DEVELOPEMENT
                         </p>
                 </div>
             </div>
