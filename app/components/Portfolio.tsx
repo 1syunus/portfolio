@@ -90,19 +90,22 @@ export default function Portfolio() {
                     <div className="mt-12 md:mt-0 space-y-4 text-right">
                         <a
                             href="xxxxxxxxxxxxxxxxx@gmail.com"
-                            className="block text-sm tracking-[0.2em]"
+                            className="block text-sm tracking-[0.2em]
+                                opacity-60 hover:opacity-100 transition-opacity duration-300"
                         >
                             EMAIL
                         </a>
                         <a
                             href="https://github.com/1syunus"
-                            className="block text-sm tracking-[0.2em]"
+                            className="block text-sm tracking-[0.2em]
+                                opacity-60 hover:opacity-100 transition-opacity duration-300"
                         >
                             GITHUB
                         </a>
                         <a
                             href="linkedin.com/in/suhayb1"
-                            className="block text-sm tracking-[0.2em]"
+                            className="block text-sm tracking-[0.2em]
+                                opacity-60 hover:opacity-100 transition-opacity duration-300"
                         >
                             LINKEDIN
                         </a>
