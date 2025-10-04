@@ -104,6 +104,34 @@ export default function Portfolio() {
                             CONTENT X DEVELOPEMENT
                         </p>
                 </div>
+
+                {/* interactive pull cord */}
+                <div
+                    className="absolute top-96 left-1/2 -translate-x-1/2
+                        flex flex-col items-center
+                        px-8 py-8
+                        cursor-grab select-none"
+                    onTouchStart={handlePullStart}
+                    onMouseDown={handlePullStart}
+                >
+                    {/* animated cord-line */}
+                    <div
+                        className="w-px bg-white opacity-20 animate-pulse transition-all duration-300"
+                        style={{
+                            height: `${64 + pullDistance}px`,
+                        }}    
+                    ></div>
+
+                    {/* spherical top */}
+                    <div className="w-4 h-4 rounded-full bg-white opacity-20 transition-all duration-300"></div>
+
+                    {/* pull indicator */}
+                    {pullDistance > 0 && (
+                        <div className="text-[10px] tracking-[0.3em] text-center mt-6 opacity-40">
+                            {pullDistance > 60 ? "RELEASE" : "PULL"}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* projects grid */}
