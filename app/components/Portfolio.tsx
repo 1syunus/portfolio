@@ -1,14 +1,20 @@
 import React, {useState, useEffect} from "react"
 
+interface Project {
+    title: string
+    year: string
+    type: string
+}
+
 export default function Portfolio() {
-    const [isVisible, setIsVisible] = useState(false)
-    const [activeProject, setActiveProject] = useState(0)
+    const [isVisible, setIsVisible] = useState<boolean>(false)
+    const [activeProject, setActiveProject] = useState<number>(0)
 
     useEffect(() => {
         setIsVisible(true)
     }, [])
 
-    const projects = [
+    const projects: Project[] = [
         {
             title: "xOx XoX",
             year: "2025",
