@@ -4,6 +4,10 @@ interface Project {
     title: string
     year: string
     type: string
+    description?: string
+    url: string
+    demo?: string
+    status: "live" | "ghost"
 }
 
 export default function Portfolio() {
@@ -42,19 +46,13 @@ export default function Portfolio() {
 
     const projects: Project[] = [
         {
-            title: "xOx XoX",
-            year: "2025",
-            type: "ML X Design"
-        },
-        {
             title: "Hime Filter",
             year: "2025",
             type: "Software",
-        },
-        {
-            title: "Hoxoxod",
-            year: "2025",
-            type: "Typography",
+            description: "Platform agnostic, vibe specific. An enhancement of streaming search brittleness.",
+            url: "https://github.com/1syunus/himefilter",
+            demo: "https://himefilter.vercel.app",
+            status: "live"
         }
     ]
 
@@ -191,32 +189,58 @@ export default function Portfolio() {
 
                 {/* projects grid */}
                 <div className="px-8 md:px-20 py-32 max-w-7xl mx-auto">
-                    <div className={`grid grid-cols-1 md:grid-cols-3 gap-1 border-t ${borderClass} ${isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"}`}>
+                    <div className={`grid grid-cols-1 gap-1 border-t ${borderClass} ${
+                        isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"
+                    } py-20`}>
                         {projects.map((project, idx) => (
                             <div
                                 key={idx}
                                 onMouseEnter={() => setActiveProject(idx)}
-                                className={`border-b
-                                    ${borderClass}
-                                    ${isDark || hasVideo ? "border-opacity-10" : "border-opacity-5"} py-12 px-8 cursor-pointer group transition-all duration-300
-                                    ${isDark
-                                        ? "hover:bg-white hover:bg-opacity-5"
-                                        : isLight
-                                        ? "hover:bg-black hover:bg-opacity-5"
-                                        : "hover:bg-white hover:bg-opacity-10"}`}
+                                className="group"
                             >
                                 <div className={`text-xs tracking-[0.3em] ${opacitySubtle} mb-4`}>
                                     {project.type}
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-light tracking-tight mb-2
+                                <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-2
                                     transition-all duration-300 group-hover:tracking-wide"
                                 >
                                     {project.title}
-                                </h3>
-                                <div className={`text-xs tracking-[0.3em] ${opacitySubtle}`}>
+                                </h2>
+                                <div className={`text-xs tracking-[0.3em] ${opacitySubtle} mb-8`}>
                                     {project.year}
                                 </div>
-                            </div>
+                                {project.description && (
+                                    <p className={`text-sm leading-relaxed ${opacityNav} max-w-xl mb-8`}>
+                                        {project.description}
+                                    </p>
+                                )}
+
+                                {/* links */}
+                                <div className="flex gap-8">
+                                    {project.demo && (
+                                        <a
+                                            href={project.demo}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`text-sm tracking-[0.2em] transition-opacity duration-300 ${
+                                                isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-80 hover:opacity-100"
+                                            }`}
+                                        >
+                                            VISIT SITE →
+                                        </a>
+                                    )}
+                                        <a
+                                            href={project.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={`text-sm tracking-[0.2em] transition-opacity duration-300 ${
+                                                isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-80 hover:opacity-100"
+                                            }`}
+                                        >
+                                            VIEW CODE →
+                                        </a>
+                                </div>
+                            </div>  
                         ))}
                     </div>
                 </div>
