@@ -16,6 +16,8 @@ export default function Portfolio() {
 
     const videos: string[] = [
         "/videos/bg-1.mp4",
+        "/videos/bg-2.mp4",
+        "/videos/bg-3.mp4",
     ]
 
     // theme calcs
@@ -83,7 +85,7 @@ export default function Portfolio() {
         if (!isPulling) return
 
         if (pullDistance > 60) {
-            setTheme((prev: number) => prev >= 2 ? 0 : prev + 1)
+            setTheme((prev: number) => prev >= 4 ? 0 : prev + 1)
         }
 
         setIsPulling(false)
