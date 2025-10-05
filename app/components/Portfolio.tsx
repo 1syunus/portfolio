@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useCallback} from "react"
 
 interface Project {
     title: string
@@ -12,7 +12,7 @@ interface Project {
 
 export default function Portfolio() {
     const [isVisible, setIsVisible] = useState<boolean>(false)
-    const [activeProject, setActiveProject] = useState<number>(0)
+    const [, setActiveProject] = useState<number>(0)
     const [theme, setTheme] = useState<number>(0)
     const [isPulling, setIsPulling] = useState<boolean>(false)
     const [pullDistance, setPullDistance] = useState<number>(0)
@@ -69,15 +69,15 @@ export default function Portfolio() {
         setStartY(clientY)
     }
 
-    const handlePullMove = (e: MouseEvent | TouchEvent): void => {
+    const handlePullMove = useCallback((e: MouseEvent | TouchEvent): void => {
         if (!isPulling) return
 
-        const clientY: number = e.type.includes("touch")
+        const clientY: number = "touches" in e
             ? (e as TouchEvent).touches[0].clientY
             : (e as MouseEvent).clientY
         const distance: number = Math.max(0, Math.min(clientY - startY, 100))
         setPullDistance(distance)
-    }
+    }, [isPulling, startY])
 
     const handlePullEnd = (): void => {
         if (!isPulling) return
@@ -226,7 +226,7 @@ export default function Portfolio() {
                                                 isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-80 hover:opacity-100"
                                             }`}
                                         >
-                                            VISIT SITE →
+                                            VISIT SITE &rarr;
                                         </a>
                                     )}
                                         <a
@@ -237,7 +237,7 @@ export default function Portfolio() {
                                                 isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-80 hover:opacity-100"
                                             }`}
                                         >
-                                            VIEW CODE →
+                                            VIEW CODE &rarr;
                                         </a>
                                 </div>
                             </div>  
