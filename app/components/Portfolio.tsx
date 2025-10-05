@@ -14,10 +14,16 @@ export default function Portfolio() {
     const [pullDistance, setPullDistance] = useState<number>(0)
     const [startY, setStartY] = useState<number>(0)
 
+    const videos: string[] = [
+        "/videos/bg-1.mp4",
+    ]
+
     // theme calcs
     const isDark: boolean = theme === 0
     const isLight: boolean = theme === 1
     const hasVideo: boolean = theme >= 2
+    const videoIndex: number = hasVideo ? theme - 2 : 0
+    const currentVideo: string | null = hasVideo ? videos[videoIndex] : null
 
     const bgClass: string = isDark ? "bg-black" : isLight ? "bg-zinc-50" : "bg-black"
     const textClass: string = isDark || hasVideo ? "text-white" : "text-zinc-900"
@@ -77,7 +83,7 @@ export default function Portfolio() {
         if (!isPulling) return
 
         if (pullDistance > 60) {
-            setTheme((prev: number) => prev + 1)
+            setTheme((prev: number) => prev >= 2 ? 0 : prev + 1)
         }
 
         setIsPulling(false)
