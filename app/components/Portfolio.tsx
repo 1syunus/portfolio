@@ -79,7 +79,7 @@ export default function Portfolio() {
         setPullDistance(distance)
     }, [isPulling, startY])
 
-    const handlePullEnd = (): void => {
+    const handlePullEnd = useCallback((): void => {
         if (!isPulling) return
 
         if (pullDistance > 60) {
@@ -89,7 +89,7 @@ export default function Portfolio() {
         setIsPulling(false)
         setPullDistance(0)
         setStartY(0)
-    }
+    }, [isPulling, pullDistance])
 
     useEffect((): (() => void) | undefined => {
         if (isPulling) {
@@ -108,7 +108,7 @@ export default function Portfolio() {
                 document.removeEventListener("mouseup", endHandler)
             }
         }
-    }, [isPulling, pullDistance])
+    }, [isPulling, handlePullMove, handlePullEnd])
 
     return (
         <div className={`min-h-screen ${bgClass} ${textClass} font-light overflow-hidden transition-colors duration-1000 ease-in`}>
@@ -252,7 +252,7 @@ export default function Portfolio() {
                     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
                         <div>
                             <h2 className="text-5xl md:text-7xl font-extralight tracking-tight mb-6">
-                                LET'S TALK
+                                LET&apos;S TALK
                             </h2>
                             <p className={`text-xs tracking-[0.3em] ${opacitySubtle}`}>
                                 AVAILABLE FOR SELECT PROJECTS
