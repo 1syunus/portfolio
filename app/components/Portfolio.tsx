@@ -260,7 +260,9 @@ export default function Portfolio() {
                         </div>
                         <div className="mt-12 md:mt-0 space-y-4 text-right">
                             <a
-                                href="https://formspree.io/f/xblzkken/share"
+                                href="https://form.typeform.com/to/HHe2kQSY"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                  className={`block text-sm tracking-[0.2em]
                                     opacity-60 hover:opacity-100 transition-opacity duration-300
                                     ${isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-50 hover:opacity-100"}
@@ -270,6 +272,8 @@ export default function Portfolio() {
                             </a>
                             <a
                                 href="https://github.com/1syunus"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={`block text-sm tracking-[0.2em]
                                     opacity-60 hover:opacity-100 transition-opacity duration-300
                                     ${isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-50 hover:opacity-100"}
@@ -278,7 +282,9 @@ export default function Portfolio() {
                                 GITHUB
                             </a>
                             <a
-                                href="linkedin.com/in/suhayb1"
+                                href="https://linkedin.com/in/suhayb1"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={`block text-sm tracking-[0.2em]
                                     opacity-60 hover:opacity-100 transition-opacity duration-300
                                     ${isDark || hasVideo ? "opacity-60 hover:opacity-100" : "opacity-50 hover:opacity-100"}
