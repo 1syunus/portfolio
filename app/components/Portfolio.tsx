@@ -168,7 +168,7 @@ export default function Portfolio() {
                             }}    
                         ></div>
 
-                        {/* spherical top */}
+                        {/* knob */}
                         <div className={`w-4 h-4 rounded-full animate-pulse
                             ${lineClass} ${isDark || hasVideo ? "opacity-20 bg-white" : "opacity-30"}
                             transition-all duration-300
