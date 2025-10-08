@@ -258,7 +258,7 @@ export default function Portfolio() {
                                 AVAILABLE FOR SELECT PROJECTS
                             </p>
                         </div>
-                        <div className="mt-12 md:mt-0 space-y-4 text-right">
+                        <div className="mt-12 md:mt-0 space-y-4 text-left sm:text-right">
                             <a
                                 href="https://form.typeform.com/to/HHe2kQSY"
                                 target="_blank"
