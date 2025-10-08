@@ -149,12 +149,17 @@ export default function Portfolio() {
 
                     {/* interactive pull cord */}
                     <div
-                        className={`absolute top-96 left-1/2 -translate-x-1/2
+                        className={`absolute left-1/2 -translate-x-1/2
                             flex flex-col items-center
                             px-8 py-8
                             cursor-grab select-none transition-all
                             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                             `}
+                        style={{
+                            top: "clamp(360px, 52vh, 820px)",
+                            width: "80px",
+                            touchAction: "none",
+                        }}
                         onTouchStart={handlePullStart}
                         onMouseDown={handlePullStart}
                     >
