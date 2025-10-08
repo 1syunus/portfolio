@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* prevent drag refresh on mobile */
+body {
+  overscroll-behavior-y: none;
+}
+
+/* smooth touch scrolling */
+html {
+  -webkit-overflow-scrolling: touch;
+}

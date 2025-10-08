@@ -149,12 +149,17 @@ export default function Portfolio() {
 
                     {/* interactive pull cord */}
                     <div
-                        className={`absolute top-96 left-1/2 -translate-x-1/2
+                        className={`absolute left-1/2 -translate-x-1/2
                             flex flex-col items-center
                             px-8 py-8
                             cursor-grab select-none transition-all
                             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                             `}
+                        style={{
+                            top: "clamp(360px, 52vh, 820px)",
+                            width: "80px",
+                            touchAction: "none",
+                        }}
                         onTouchStart={handlePullStart}
                         onMouseDown={handlePullStart}
                     >
@@ -168,7 +173,7 @@ export default function Portfolio() {
                             }}    
                         ></div>
 
-                        {/* spherical top */}
+                        {/* knob */}
                         <div className={`w-4 h-4 rounded-full animate-pulse
                             ${lineClass} ${isDark || hasVideo ? "opacity-20 bg-white" : "opacity-30"}
                             transition-all duration-300
@@ -258,7 +263,7 @@ export default function Portfolio() {
                                 AVAILABLE FOR SELECT PROJECTS
                             </p>
                         </div>
-                        <div className="mt-12 md:mt-0 space-y-4 text-right">
+                        <div className="mt-12 md:mt-0 space-y-4 text-left sm:text-right">
                             <a
                                 href="https://form.typeform.com/to/HHe2kQSY"
                                 target="_blank"
